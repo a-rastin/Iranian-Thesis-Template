@@ -1,0 +1,118 @@
+%==============================================================================
+% config.tex — تنظیمات مشترک پایان‌نامه دانشگاه‌های علوم پزشکی 
+% موتور الزامی: XeLaTeX
+%==============================================================================
+\usepackage{geometry}
+\geometry{a4paper,inner=3.5cm,outer=2.5cm,top=2.5cm,bottom=2.5cm,includefoot,footskip=1.25cm}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,tabularx,array,multirow,longtable}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{fontsetup}
+\usepackage{pdfpages}
+\usepackage[unicode,hidelinks]{hyperref}
+
+\usepackage[backend=biber,style=vancouver,sorting=none,maxbibnames=99,giveninits=true,doi=true,url=true]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{xepersian}
+\settextfont[
+  Path=fonts/,
+  Extension=.ttf,
+  Script=Arabic,
+  Scale=1,
+  BoldFont=IRNazanin-Bold,
+  ItalicFont=IRNazanin-Italic
+]{IRNazanin-Regular}
+
+\newfontfamily\XTitr[
+  Path=fonts/,
+  Extension=.ttf,
+  Script=Arabic
+]{IRTitr}
+\setstretch{1.15}
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+\AtBeginBibliography{\setlength{\emergencystretch}{5em}}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\titleformat{\chapter}[display]
+  {\centering\normalfont}
+  {\XTitr\fontsize{18pt}{22pt}\selectfont فصل \thechapter}
+  {1.2em}
+  {\XTitr\fontsize{22pt}{28pt}\selectfont}
+\titlespacing*{\chapter}{0pt}{0.27\textheight}{3.5em}
+\titleformat{\section}{\XTitr\fontsize{16pt}{20pt}\selectfont}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\XTitr\fontsize{14pt}{18pt}\selectfont}{\thesubsection}{0.7em}{}
+\titleformat{\subsubsection}{\XTitr\fontsize{12pt}{16pt}\selectfont}{\thesubsubsection}{0.7em}{}
+\renewcommand{\thefigure}{\thechapter-\arabic{figure}}
+\renewcommand{\thetable}{\thechapter-\arabic{table}}
+\captionsetup{font={small,bf},justification=centering,singlelinecheck=false,skip=0.55cm}
+\captionsetup[table]{position=top}
+\captionsetup[figure]{position=bottom}
+\setlength{\textfloatsep}{1cm plus 2pt minus 2pt}
+\setlength{\intextsep}{1cm plus 2pt minus 2pt}
+\fancypagestyle{thesis}{%
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{thesis}
+% Keep automatically inserted verso pages completely blank in duplex output.
+\makeatletter
+\renewcommand{\cleardoublepage}{%
+  \clearpage
+  \if@twoside
+    \ifodd\c@page\else
+      \hbox{}\thispagestyle{empty}\newpage
+      \if@twocolumn\hbox{}\newpage\fi
+    \fi
+  \fi
+}
+\makeatother
+\newcommand{\FrontMatterNumbering}{\pagenumbering{harfi}\pagestyle{thesis}}
+\newcommand{\MainMatterNumbering}{\pagenumbering{arabic}\pagestyle{thesis}}
+\newcommand{\ChapterStart}{\cleardoublepage}
+\renewcommand{\contentsname}{فهرست مطالب}
+\renewcommand{\listtablename}{فهرست جدول‌ها}
+\renewcommand{\listfigurename}{فهرست شکل‌ها و نمودارها}
+\renewcommand{\bibname}{فهرست منابع و مأخذ}
+\newcommand{\ThesisTitleFA}{************}
+\newcommand{\ThesisTitleEN}{*********}
+\newcommand{\StudentNameFA}{********}
+\newcommand{\StudentNameEN}{**************}
+\newcommand{\StudentID}{***********}
+\newcommand{\StudentDegreeFA}{**********}
+\newcommand{\StudentDegreeEN}{************}
+\newcommand{\StudentFieldFA}{*************}
+\newcommand{\StudentFieldEN}{**************}
+\newcommand{\FacultyFA}{دانشکده *********}
+\newcommand{\FacultyEN}{School *********}
+\newcommand{\UniversityFA}{**********}
+\newcommand{\UniversityEN}{******* University of Medical Sciences}
+\newcommand{\SupervisorOneFA}{*********}
+\newcommand{\SupervisorOneEN}{************}
+\newcommand{\SupervisorOneTitleFA}{استاد راهنما}
+\newcommand{\SupervisorTwoFA}{**********}
+\newcommand{\SupervisorTwoEN}{**********}
+\newcommand{\SupervisorTwoTitleFA}{استاد مشاور}
+\newcommand{\ThesisYearFA}{*****}
+\newcommand{\ThesisYearEN}{****}
+\newcommand{\ThesisMonthFA}{****}
+\newcommand{\ThesisMonthEN}{rrr}
+\newcommand{\KeywordsFA}{****}
+\newcommand{\KeywordsEN}{r******}

@@ -1,0 +1,149 @@
+%==============================================================================
+% main.tex — فایل اصلی پایان‌نامه
+% دانشگاه‌های علوم پزشکی تهران | دستورالعمل نگارش پایان‌نامه تحصیلات تکمیلی
+% موتور: XeLaTeX  |  بسته فارسی: XePersian  |  منابع: BibLaTeX (Vancouver)
+%==============================================================================
+%
+% ترتیب کامپایل پیشنهادی:
+%   xelatex thesis
+%   biber thesis
+%   xelatex thesis
+%   xelatex thesis
+%
+% یا با latexmk:
+%   latexmk -xelatex main.tex
+%==============================================================================
+
+\documentclass[
+  a4paper,
+  14pt,          % متن فارسی ۱۴ (B Nazanin)
+  twoside,       % چاپ دورو
+  openright      % شروع فصل از صفحه فرد
+]{extbook}
+
+\input{config}
+
+\begin{document}
+
+%==============================================================================
+% بخش‌های آغازین (Front Matter)
+% شماره صفحات: حروف ابجد | ترتیب مطابق بند ۱-۳ دستورالعمل TUMS
+%==============================================================================
+\frontmatter
+\FrontMatterNumbering
+
+% ۱) جلد فارسی — در نسخه PDF نیز درج می‌شود
+\input{frontmatter/title-fa}
+
+% ۲) صفحه سفید پشت جلد
+\thispagestyle{empty}
+\null
+\clearpage
+
+% ۳) بسم‌الله
+\input{frontmatter/basmala}
+
+% ۴) صفحه عنوان داخلی فارسی
+\input{frontmatter/internal-title-fa}
+
+% ۵) اظهارنامه دانشجو
+\input{frontmatter/declaration-fa}
+
+% ۶) حق چاپ و تکثیر و مالکیت نتایج
+\input{frontmatter/copyright}
+
+% ۷) تقدیم و سپاسگزاری
+\input{frontmatter/dedication}
+\input{frontmatter/acknowledgements}
+
+% ۸) چکیده فارسی و کلمات کلیدی
+\input{frontmatter/abstract-fa}
+
+% ۹) فهرست علائم و اختصارات (در صورت نیاز)
+%\input{frontmatter/abbreviations}
+
+% ۱۰) فهرست مطالب
+\tableofcontents
+\clearpage
+
+% ۱۱) فهرست جداول
+\listoftables
+\clearpage
+
+% ۱۲) فهرست شکل‌ها، نمودارها، عکس‌ها
+\listoffigures
+\clearpage
+
+%==============================================================================
+% متن اصلی (Main Matter)
+% شماره صفحات: اعداد | فصول ۱ تا ۵
+%==============================================================================
+\mainmatter
+\MainMatterNumbering
+
+% ۱۳) فصل اول: مقدمه، کلیات، بیان مسأله
+\input{chapters/ch01-introduction}
+
+% ۱۴) فصل دوم: بررسی متون
+\input{chapters/ch02-literature}
+
+% ۱۵) فصل سوم: مواد و روش کار
+\input{chapters/ch03-methods}
+
+% ۱۶) فصل چهارم: یافته‌ها
+\input{chapters/ch04-results}
+
+% ۱۷) فصل پنجم: بحث و نتیجه‌گیری
+\input{chapters/ch05-discussion}
+
+
+%==============================================================================
+% منابع و پیوست‌ها
+%==============================================================================
+
+% ۱۸) فهرست منابع و مأخذ (شیوه Vancouver)
+\ChapterStart
+\chapter*{فهرست منابع و مأخذ}
+\phantomsection
+\addcontentsline{toc}{chapter}{فهرست منابع و مأخذ}
+\begin{latin}
+\small
+\begin{sloppypar}
+\printbibliography[heading=none]
+\end{sloppypar}
+\end{latin}
+
+% ۱۹) پیوست‌ها
+%\appendix
+%\input{backmatter/appendices}
+
+% ۲۰–۲۱) تأییدیه استاد راهنما و صورت‌جلسه دفاع — معمولاً پس از صحافی الصاق می‌شوند
+% در صورت نیاز فایل‌های PDF را در این بخش \includepdf کنید:
+% \includepdf[pages=-]{forms/supervisor-approval.pdf}
+% \includepdf[pages=-]{forms/defense-minutes.pdf}
+
+%==============================================================================
+% بخش‌های پایانی انگلیسی (Back Matter — ترتیب معکوس از انتهای کتاب)
+% در PDF پس از پیوست‌ها و قبل از پشت جلد می‌آیند
+%==============================================================================
+\backmatter
+
+% ۲۲) اظهارنامه انگلیسی
+\input{backmatter/declaration-en}
+
+% ۲۳) چکیده انگلیسی
+\input{backmatter/abstract-en}
+
+% ۲۴) صفحه عنوان انگلیسی
+\input{backmatter/title-en}
+
+% ۲۵) صفحه سفید آخر
+\thispagestyle{empty}
+\null
+\clearpage
+
+% ۲۶) پشت جلد انگلیسی — در صحافی؛ اینجا به‌صورت صفحه پایانی
+\input{backmatter/cover-en}
+
+\end{document}
+\textit{}
