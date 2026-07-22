@@ -5,8 +5,11 @@
 \usepackage{geometry}
 \geometry{a4paper,inner=3.5cm,outer=2.5cm,top=2.5cm,bottom=2.5cm,includefoot,footskip=1.25cm}
 \usepackage{graphicx}
+\usepackage{tikz}
+	\usetikzlibrary{arrows.meta,positioning}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs,tabularx,array,multirow,longtable}
+\usepackage{pdflscape}
 \usepackage{float}
 \usepackage{enumitem}
 \usepackage{setspace}
@@ -16,10 +19,8 @@
 \usepackage{fontsetup}
 \usepackage{pdfpages}
 \usepackage[unicode,hidelinks]{hyperref}
-
 \usepackage[backend=biber,style=vancouver,sorting=none,maxbibnames=99,giveninits=true,doi=true,url=true]{biblatex}
-\addbibresource{references.bib}
-
+    \addbibresource{references.bib}
 \usepackage{xepersian}
 \settextfont[
   Path=fonts/,
@@ -45,13 +46,13 @@
 \displaywidowpenalty=10000
 \titleformat{\chapter}[display]
   {\centering\normalfont}
-  {\XTitr\fontsize{18pt}{22pt}\selectfont فصل \thechapter}
+  {\XTitr\fontsize{18pt}{22pt}\selectfont فصل \tartibi{chapter}}
   {1.2em}
   {\XTitr\fontsize{22pt}{28pt}\selectfont}
 \titlespacing*{\chapter}{0pt}{0.27\textheight}{3.5em}
-\titleformat{\section}{\XTitr\fontsize{16pt}{20pt}\selectfont}{\thesection}{0.7em}{}
-\titleformat{\subsection}{\XTitr\fontsize{14pt}{18pt}\selectfont}{\thesubsection}{0.7em}{}
-\titleformat{\subsubsection}{\XTitr\fontsize{12pt}{16pt}\selectfont}{\thesubsubsection}{0.7em}{}
+%\titleformat{\section}{\XTitr\fontsize{16pt}{20pt}\selectfont}{\thesection}{0.7em}{}
+%\titleformat{\subsection}{\XTitr\fontsize{14pt}{18pt}\selectfont}{\thesubsection}{0.7em}{}
+%\titleformat{\subsubsection}{\XTitr\fontsize{12pt}{16pt}\selectfont}{\thesubsubsection}{0.7em}{}
 \renewcommand{\thefigure}{\thechapter-\arabic{figure}}
 \renewcommand{\thetable}{\thechapter-\arabic{table}}
 \captionsetup{font={small,bf},justification=centering,singlelinecheck=false,skip=0.55cm}
@@ -91,28 +92,32 @@
 \renewcommand{\listtablename}{فهرست جدول‌ها}
 \renewcommand{\listfigurename}{فهرست شکل‌ها و نمودارها}
 \renewcommand{\bibname}{فهرست منابع و مأخذ}
-\newcommand{\ThesisTitleFA}{************}
-\newcommand{\ThesisTitleEN}{*********}
-\newcommand{\StudentNameFA}{********}
-\newcommand{\StudentNameEN}{**************}
-\newcommand{\StudentID}{***********}
-\newcommand{\StudentDegreeFA}{**********}
-\newcommand{\StudentDegreeEN}{************}
-\newcommand{\StudentFieldFA}{*************}
-\newcommand{\StudentFieldEN}{**************}
-\newcommand{\FacultyFA}{دانشکده *********}
-\newcommand{\FacultyEN}{School *********}
-\newcommand{\UniversityFA}{**********}
-\newcommand{\UniversityEN}{******* University of Medical Sciences}
-\newcommand{\SupervisorOneFA}{*********}
-\newcommand{\SupervisorOneEN}{************}
+\newcommand{\ThesisTitleFA}{عنوان فارسی پایان نامه}
+\newcommand{\ThesisTitleEN}{English Title}
+\newcommand{\StudentNameFA}{نام دانشجو}
+\newcommand{\StudentNameEN}{Student's Name}
+%\newcommand{\StudentID}{}
+\newcommand{\StudentDegreeFA}{دکتری حرفه‌ای}
+\newcommand{\StudentDegreeEN}{Doctorate}
+\newcommand{\StudentFieldFA}{پزشکی}
+\newcommand{\StudentFieldEN}{Medicine}
+\newcommand{\FacultyFA}{دانشکده پزشکی}
+\newcommand{\FacultyEN}{Faculty of Medicine}
+\newcommand{\UniversityFA}{دانشگاه علوم پزشکی و خدمات بهداشتی، درمانی لرستان}
+\newcommand{\UniversityEN}{Lorestan University of Medical Sciences}
 \newcommand{\SupervisorOneTitleFA}{استاد راهنما}
-\newcommand{\SupervisorTwoFA}{**********}
-\newcommand{\SupervisorTwoEN}{**********}
-\newcommand{\SupervisorTwoTitleFA}{استاد مشاور}
-\newcommand{\ThesisYearFA}{*****}
-\newcommand{\ThesisYearEN}{****}
-\newcommand{\ThesisMonthFA}{****}
-\newcommand{\ThesisMonthEN}{rrr}
-\newcommand{\KeywordsFA}{****}
-\newcommand{\KeywordsEN}{r******}
+\newcommand{\SupervisorOneFA}{نام استاد راهنمای اول}
+\newcommand{\SupervisorOneEN}{}
+\newcommand{\SupervisorTwoTitleFA}{استادان مشاور}
+\newcommand{\AdvisorOneFA}{}
+\newcommand{\AdvisorOneEN}{}
+\newcommand{\AdvisorTwoFA}{}
+\newcommand{\AdvisorTwoEN}{}
+\newcommand{\AdvisorThreeFA}{}
+\newcommand{\AdvisorThreeEN}{}
+\newcommand{\ThesisYearFA}{}
+\newcommand{\ThesisYearEN}{}
+\newcommand{\ThesisMonthFA}{}
+\newcommand{\ThesisMonthEN}{}
+\newcommand{\KeywordsFA}{}
+\newcommand{\KeywordsEN}{}
